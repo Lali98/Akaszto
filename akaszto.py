@@ -19,11 +19,10 @@ def cserel(feladvany, szo, betu):
         else:
             eredmeny += feladvany[i]
     eredmeny += szo[-1]
-    return eredmeny 
+    return eredmeny
 
-def main():
-    helysegek = beolvas("helyek.txt")
-    feladat = random.choice(helysegek)
+def gep_gondol(lista):
+    feladat = random.choice(lista)
     kiirando = feladvany(feladat)
     proba = 6
 
@@ -46,6 +45,11 @@ def main():
         print("Gratuálok! Megnyertet a játékot!")
     else:
         print("A tippeit elfogytak, ez kellet volna kitalálni:", feladat)
+
+def main():
+    helysegek = beolvas("helyek.txt")
+    gep_gondol(helysegek)
+    
             
       
 main()
