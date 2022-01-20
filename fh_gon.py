@@ -27,23 +27,3 @@ def kizar(lista, betu):
         if not betu in helyseg[1:-1]:
             eredmeny.append(helyseg)
     return eredmeny
-
-print("Most te gondolj!")
-kiirando=input("Írd be a feladványt:")
-lehetsegesek = keres(kiirando, helysegek)
-#print(lehetsegesek)
-# while ciklus inkább, amíg több mint 1 lehetséges van!
-if len(lehetsegesek) == 0:
-    print("Nincs ilyen település.")
-elif len(lehetsegesek) == 1:
-    print(lehetsegesek[0], "a gondolt város.")
-else:
-    betu = betutipp(kiirando, lehetsegesek[0])
-    valasz = input(f"Van benne '{betu}' betű? (i/n): ")
-    if valasz == "i":
-        kiirando2=input("Írd be a feladványt:")
-        while not ellenor(kiirando, kiirando2, betu):
-            kiirando2=input("Írd be a feladványt:")
-        lehetsegesek = keres(kiirando, lehetsegesek)
-    else:
-        lehetsegesek = kizar(lehetsegesek, betu)

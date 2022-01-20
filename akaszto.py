@@ -1,4 +1,6 @@
 import random
+from fh_gon import *
+
 def beolvas(filenev):
     # ide jön a kód
     lista = []
@@ -46,9 +48,33 @@ def gep_gondol(lista):
     else:
         print("A tippeit elfogytak, ez kellet volna kitalálni:", feladat)
 
+def fh_gondol(lista):
+    print("Gondolj egy magyar településre!")
+    kiirando=input("Írd be a feladványt:")
+    lehetsegesek = keres(kiirando, lista)
+    #print(lehetsegesek)
+    # while ciklus inkább, amíg több mint 1 lehetséges van!
+    if len(lehetsegesek) == 0:
+        print("Nincs ilyen település.")
+    elif len(lehetsegesek) == 1:
+        print(lehetsegesek[0], "a gondolt város.")
+    else:
+        print(lehetsegesek)
+        # betu = betutipp(kiirando, lehetsegesek[0])
+        # valasz = input(f"Van benne '{betu}' betű? (i/n): ")
+        # if valasz == "i":
+        #     kiirando2=input("Írd be a feladványt:")
+        #     while not ellenor(kiirando, kiirando2, betu):
+        #         kiirando2=input("Írd be a feladványt:")
+        #     lehetsegesek = keres(kiirando, lehetsegesek)
+        # else:
+        #     lehetsegesek = kizar(lehetsegesek, betu)
+
 def main():
     helysegek = beolvas("helyek.txt")
     gep_gondol(helysegek)
+
+    fh_gondol(helysegek)
     
             
       
